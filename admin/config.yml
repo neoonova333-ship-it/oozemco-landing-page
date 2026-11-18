@@ -1,0 +1,75 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USER/oozem-website   # عدّل: اسم المستخدم/اسم المستودع
+  branch: main
+  base_url: https://oozemco.com          # عدّل: دومين موقعك على Cloudflare Pages
+  auth_endpoint: api/auth                # يطابق functions/api/auth.js
+site_url: https://oozemco.com
+media_folder: images
+public_folder: /images
+locale: ar
+collections:
+  - name: site
+    label: محتوى الموقع
+    files:
+      - name: content
+        label: كل الأقسام
+        file: content/site.json
+        fields:
+          - label: القسم الرئيسي (Hero)
+            name: hero
+            widget: object
+            fields:
+              - {label: عبارة صغيرة, name: kicker, widget: string}
+              - {label: العنوان, name: title, widget: string}
+              - {label: الوصف, name: text, widget: text}
+              - {label: اسم المنتج, name: product, widget: string}
+              - {label: السعة, name: size, widget: string}
+              - {label: نص الزر, name: cta_text, widget: string}
+              - {label: رابط الزر, name: cta_url, widget: string}
+              - {label: صورة المنتج, name: image, widget: image}
+          - label: من نحن
+            name: about
+            widget: object
+            fields:
+              - {label: العنوان, name: title, widget: string}
+              - {label: النص, name: text, widget: text}
+              - {label: نص زر التحميل, name: catalog_text, widget: string}
+              - {label: ملف التعريف (PDF), name: catalog_url, widget: file}
+          - label: هويتنا المؤسسية
+            name: identity
+            widget: object
+            fields:
+              - {label: عنوان القسم, name: title, widget: string}
+              - {label: الرؤية, name: vision, widget: object, fields: [{label: العنوان, name: title, widget: string}, {label: النص, name: text, widget: text}]}
+              - {label: المهمة, name: mission, widget: object, fields: [{label: العنوان, name: title, widget: string}, {label: النص, name: text, widget: text}]}
+              - {label: القيم, name: values, widget: object, fields: [{label: العنوان, name: title, widget: string}, {label: النص, name: text, widget: text}]}
+          - {label: عنوان قسم الخدمات, name: services_title, widget: string}
+          - label: الخدمات
+            name: services
+            widget: list
+            fields: [{label: العنوان, name: title, widget: string}, {label: الوصف, name: text, widget: text}]
+          - {label: عنوان قسم المنتجات, name: products_title, widget: string}
+          - label: أقسام المنتجات
+            name: products
+            widget: list
+            fields:
+              - {label: العنوان, name: title, widget: string}
+              - {label: الوصف, name: text, widget: text}
+              - {label: التفرعات (اختياري), name: items, widget: list, required: false, field: {label: البند, name: name, widget: string}}
+          - {label: عنوان قسم المميزات, name: features_title, widget: string}
+          - label: المميزات
+            name: features
+            widget: list
+            fields: [{label: العنوان, name: title, widget: string}, {label: الوصف, name: text, widget: text}]
+          - label: بيانات التواصل
+            name: contact
+            widget: object
+            fields:
+              - {label: العنوان, name: title, widget: string}
+              - {label: النص, name: text, widget: text}
+              - {label: نص زر المحادثة, name: chat_text, widget: string}
+              - {label: الهاتف, name: phone, widget: string}
+              - {label: واتساب, name: whatsapp, widget: string}
+              - {label: البريد, name: email, widget: string}
+              - {label: الموقع, name: website, widget: string}
