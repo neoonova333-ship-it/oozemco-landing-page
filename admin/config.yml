@@ -2,7 +2,7 @@ backend:
   name: github
   repo: neoonova333-ship-it/oozemco-landing-page   # عدّل: اسم المستخدم/اسم المستودع
   branch: main
-  base_url: https://oozemco-landing-page.pages.dev          # عدّل: دومين موقعك على Cloudflare Pages
+  base_url: https://oozemco.com          # عدّل: دومين موقعك على Cloudflare Pages
   auth_endpoint: api/auth                # يطابق functions/api/auth.js
 site_url: https://oozemco.com
 media_folder: images
